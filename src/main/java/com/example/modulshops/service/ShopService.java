@@ -1,15 +1,13 @@
 package com.example.modulshops.service;
 
 import com.example.modulshops.mapper.OneShopMapper;
-//import com.example.modulshops.mapper.ProductList;
-import com.example.modulshops.mapper.ProductList;
+import com.example.modulshops.mapper.ProductListMapper;
 import com.example.modulshops.mapper.ShopsMapper;
 import com.example.modulshops.model.rest.Shop;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
@@ -36,18 +34,12 @@ public class ShopService {
        Shop shop = jdbcTemplate
                .queryForObject("SELECT * FROM shop WHERE id =" + id, new OneShopMapper(productList));
         return shop;
-
     }
 
+    public List<Shop.Product> getProductList(){
+        List<Shop.Product> list = jdbcTemplate.queryForObject("SELECT * FROM product", new ProductListMapper());
+        return list;
+    }
 
-
-
-
-
-//    @Override
-//    Optional<Shop> findById(Long aLong);
-//
-//    @Override
-//    List<Shop> findAll();
 
 }

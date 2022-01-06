@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ProductList implements RowMapper<List<Shop.Product>> {
+public class ProductListMapper implements RowMapper<List<Shop.Product>> {
 
     @Override
     public List<Shop.Product> mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -24,6 +24,7 @@ public class ProductList implements RowMapper<List<Shop.Product>> {
             Shop.Product product = new Shop.Product();
             product.setId(rs.getLong("id"));
             product.setProductName(rs.getString("productName"));
+            product.setCount(rs.getInt("count"));
             productList.add(product);
         }
 

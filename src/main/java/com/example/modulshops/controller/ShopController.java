@@ -16,10 +16,7 @@ import java.util.List;
 public class ShopController {
 
     @Autowired
-    private ShopService shopService;
-
-    public ShopController() {
-    }
+    private final ShopService shopService;
 
     @GetMapping("/shops")
     public List<Shop> getShopList() throws Exception {
@@ -43,10 +40,10 @@ public class ShopController {
     }
 
 
-    @GetMapping("/goods/{id}")
-    public List<Shop.Product> getGoodsList(@PathVariable("id") long id) {
+    @GetMapping("/goods")
+    public List<Shop.Product> getGoodsList() {
 
-        return null;
+        return shopService.getProductList();
 
     }
 

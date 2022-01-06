@@ -3,10 +3,8 @@
  */
 package com.example.modulshops.model.rest;
 
-//import com.sun.istack.NotNull;
 import lombok.*;
 
-import javax.persistence.*;
 import java.util.List;
 @ToString
 @Getter
@@ -28,6 +26,6 @@ public class Shop {
     public static class Product {
         private long id;
         private String ProductName;
-        //private int count;
+        private int count;
     }
 }

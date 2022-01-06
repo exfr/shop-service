@@ -26,19 +26,4 @@ public class ShopsMapper implements RowMapper<List<Shop>> {
         }
         return shopList;
     }
-
-//    @Override
-//    public List<Shop.Product> mapRow1(ResultSet rs, int rowNum) throws SQLException {
-//        List<Shop.Product> shopProductList = new ArrayList<>();
-//
-//        while (rs.next()) {
-//            Shop.Product shopProduct = new Shop.Product();
-//            shopProduct.getId(rs.getLong("id"));
-//            shopProduct.setProductName(rs.getString("ProductName"));
-//            shopProductList.add(shopProduct);
-//        }
-//        return shopProductList;
-//    }
-
-
 }
