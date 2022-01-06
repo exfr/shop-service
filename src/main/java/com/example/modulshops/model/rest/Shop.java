@@ -18,16 +18,16 @@ public class Shop {
 
     private Long id;
     private String shopName;
-//    private List<Product> productList;
-//
-//    @NoArgsConstructor
-//    @AllArgsConstructor
-//    @Getter
-//    @Setter
-//    @EqualsAndHashCode
-//    public static class Product {
-//        private long id;
-//        private String ProductName;
-//        private int count;
-//    }
+    private List<Product> productList;
+
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Getter
+    @Setter
+    @EqualsAndHashCode
+    public static class Product {
+        private long id;
+        private String ProductName;
+        //private int count;
+    }
 }

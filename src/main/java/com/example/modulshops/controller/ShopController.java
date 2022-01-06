@@ -3,12 +3,10 @@
  */
 package com.example.modulshops.controller;
 
-import com.example.modulshops.mapper.ShopMapper;
 import com.example.modulshops.model.rest.Shop;
-import com.example.modulshops.repository.ShopRepository;
+import com.example.modulshops.service.ShopService;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,13 +16,16 @@ import java.util.List;
 public class ShopController {
 
     @Autowired
-    private ShopRepository shopRepository;
+    private ShopService shopService;
+
+    public ShopController() {
+    }
 
     @GetMapping("/shops")
     public List<Shop> getShopList() throws Exception {
         System.out.println("Getting all shops ... ");
-        return shopRepository.getShopListAll();
-        
+        return shopService.getShopListAll();
+
         //System.out.println(shopList);
 //        List<Shop> shopList = Optional.ofNullable(shopRepository.findAll()).orElse(null);
 //        if (shopList != null) {
@@ -35,8 +36,17 @@ public class ShopController {
 
     }
 
+    @GetMapping("/shops/{id}")
+    public Shop getOneShop(@PathVariable("id")long id) {
+        System.out.println("Get One Shop ... ");
+        return shopService.getOneShop(id);
+    }
+
+
     @GetMapping("/goods/{id}")
-    public void getGoodsList(@PathVariable("id") long id) {
+    public List<Shop.Product> getGoodsList(@PathVariable("id") long id) {
+
+        return null;
 
     }
 
@@ -52,7 +62,6 @@ public class ShopController {
     public void fillShopsGoods(@RequestBody List<Shop> shopsList) {
     }
 
-    public ShopController() {
-    }
+
 
 }

@@ -17,10 +17,16 @@ public class FlyWayMigration {
     @Value("${spring.datasource.url}")
     private String url;
 
-    public static void flyWayMigration(String url, String user, String password) {
+    @Value("${spring.datasource.username}")
+    private String user;
+
+    @Value("${spring.datasource.password}")
+    private String password;
+
+    public static void flyWayMigration(String url, String username, String password) {
         logger.info("db migration started ... ");
         var flyWay = Flyway.configure()
-                .dataSource(url, user, password)
+                .dataSource(url, username, password)
                 .locations("classpath:/db/migration")
                 .load();
         flyWay.migrate();
