@@ -1,0 +1,25 @@
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/moduleshops
+    username: postgres
+    password: 123
+    driverClassName: org.postgresql.Driver
+
+#  main:
+#    web-application-type: none
+
+
+#spring.jpa.show-sql=false
+#spring.jpa.hibernate.ddl-auto=create
+#spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
+#spring.datasource.driver-class-name=org.postgresql.Driver
+#spring.datasource.url=jdbc:postgresql://localhost:5432/moduleshops
+#spring.datasource.username=postgres
+#spring.datasource.password=123
+
+#spring.flyway.baselineOnMigrate=true
+##spring.flyway.check-location=true
+#spring.flyway.locations=classpath:db/migration
+#spring.flyway.schemas=public
+#spring.flyway.enabled=true
