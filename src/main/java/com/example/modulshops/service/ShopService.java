@@ -33,8 +33,8 @@ public class ShopService {
 
        //List<Shop.Product> productList = shopService.getProductList();
        // List<Shop.Product> query1 =
-
-       Shop.Product shop = jdbcTemplate.query(query, new OneShopMapper());
+       // System.out.println(productList);
+       Shop.Product shop = jdbcTemplate.queryForObject(query, new OneShopMapper());
        System.out.println(shop);
         return shop;
     }
