@@ -6,7 +6,6 @@ package com.example.modulshops.controller;
 import com.example.modulshops.model.rest.Shop;
 import com.example.modulshops.service.ShopService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,7 +39,7 @@ public class ShopController {
 
     @GetMapping("/shops/{id}")
     @ApiOperation("get one shop")
-    public Shop getOneShop(@PathVariable("id")int id) {
+    public Shop.Product getOneShop(@PathVariable("id")int id) {
         System.out.println("Get One Shop ... ");
         return shopService.getOneShop(id);
     }

@@ -4,7 +4,6 @@
 package com.example.modulshops.mapper;
 
 import com.example.modulshops.model.rest.Shop;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
@@ -22,17 +21,18 @@ public class OneShopMapper implements RowMapper<Shop> {
         Shop oneShop = new Shop();
         oneShop.setId(rs.getInt("id"));
         oneShop.setShop_name(rs.getString("shopName"));
-        List<Shop.Product> productList1 = new ArrayList<>();
+
+        List<Shop.Product> productList = new ArrayList<>();
 
         while(rs.next()) {
             Shop.Product product = new Shop.Product();
             product.setProduct_name(rs.getString("productName"));
             product.setId(rs.getInt("id_of_product"));
             product.setCount(rs.getInt("count"));
-            productList1.add(product);
+            productList.add(product);
         }
 
-        oneShop.setProductList(productList1);
+        oneShop.setProductList(productList);
 
         return oneShop;
     }

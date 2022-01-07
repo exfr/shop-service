@@ -23,6 +23,7 @@ public class Shop {
     @Getter
     @Setter
     @EqualsAndHashCode
+    @ToString
     public static class Product {
         private int id;
         private String product_name;

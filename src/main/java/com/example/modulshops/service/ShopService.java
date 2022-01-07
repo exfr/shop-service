@@ -18,40 +18,29 @@ public class ShopService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-//    private List<Shop.Product> productList;
-
-//    @Autowired
-//    private ShopService shopService;
-
-//    @Autowired
-//    public ShopService(List<Shop.Product> productList) {
-//        this.productList = productList;
-//    }
-
     public List<Shop> getShopListAll() {
-
-        List<Shop> shopList = jdbcTemplate.queryForObject(
+        List<Shop> shopList = jdbcTemplate.query(
                 "SELECT * FROM shop", new ShopsMapper());
         return shopList;
     }
 
-    public Shop getOneShop(int id) {
-        //String query = "SELECT * FROM shop WHERE shop.id = " + id;
-        String query = "SELECT " + id + " AS id,"  +
-                "shop.shop_name AS shopName, " +
-                "product.id AS id_of_product, product.product_name AS productName, " +
-                "product.count AS count FROM shop inner join product ON shop.id = product.id_shop WHERE shop.id = " + id;
+    public Shop.Product getOneShop(int id) {
+        String query = "SELECT * FROM shop WHERE shop.id = " + id;
+        //String query = "SELECT " + id + " AS id,"  +
+//                "shop.shop_name AS shopName, " +
+//                "product.id AS id_of_product, product.product_name AS productName, " +
+//                "product.count AS count FROM shop inner join product ON shop.id = product.id_shop WHERE shop.id = " + id;
 
        //List<Shop.Product> productList = shopService.getProductList();
        // List<Shop.Product> query1 =
 
-       Shop shop = jdbcTemplate
-               .queryForObject(query, new OneShopMapper());
+       Shop.Product shop = jdbcTemplate.query(query, new OneShopMapper());
+       System.out.println(shop);
         return shop;
     }
 
     public List<Shop.Product> getProductList(){
-        List<Shop.Product> list = jdbcTemplate.queryForObject("SELECT * FROM product", new ProductListMapper());
+        List<Shop.Product> list = jdbcTemplate.query("SELECT * FROM product", new ProductListMapper());
         return list;
     }
 
