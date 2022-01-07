@@ -21,7 +21,7 @@ public class ShopsMapper implements RowMapper<List<Shop>> {
         while (rs.next()) {
             Shop shop = new Shop();
             shop.setId(rs.getLong("id"));
-            shop.setShopName(rs.getString("shopName"));
+            shop.setShop_name(rs.getString("shop_name"));
             shopList.add(shop);
         }
         return shopList;

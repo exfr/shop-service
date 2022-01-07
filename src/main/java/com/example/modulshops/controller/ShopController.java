@@ -22,7 +22,6 @@ public class ShopController {
     @Autowired
     private final ShopService shopService;
 
-
     @GetMapping("/shops")
     @ApiOperation("get shop list")
     public List<Shop> getShopList() throws Exception {

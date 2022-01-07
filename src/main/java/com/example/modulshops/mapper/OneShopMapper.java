@@ -15,22 +15,12 @@ import java.util.List;
 @Component
 public class OneShopMapper implements RowMapper<Shop> {
 
-    private List<Shop.Product> productList;
-
-    @Autowired
-    public OneShopMapper(List<Shop.Product> productList) {
-        this.productList = productList;
-    }
-
-
-
     @Override
     public Shop mapRow(ResultSet rs, int rowNum) throws SQLException {
 
         Shop oneShop = new Shop();
         oneShop.setId(rs.getLong("id"));
-        oneShop.setShopName(rs.getString("shopName"));
-        oneShop.setProductList(productList);
+        oneShop.setShop_name(rs.getString("shop_name"));
 
         return oneShop;
     }

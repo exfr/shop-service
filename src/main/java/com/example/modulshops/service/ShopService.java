@@ -32,8 +32,10 @@ public class ShopService {
     }
 
     public Shop getOneShop(long id) {
+       String query = "SELECT * FROM shop" +
+               "WHERE id = 3" ;
        Shop shop = jdbcTemplate
-               .queryForObject("SELECT * FROM shop WHERE id =" + id, new OneShopMapper(productList));
+               .queryForObject(query, new OneShopMapper());
         return shop;
     }
 

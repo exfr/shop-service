@@ -15,7 +15,7 @@ import java.util.List;
 public class Shop {
 
     private Long id;
-    private String shopName;
+    private String shop_name;
     private List<Product> productList;
 
     @NoArgsConstructor
@@ -25,7 +25,7 @@ public class Shop {
     @EqualsAndHashCode
     public static class Product {
         private long id;
-        private String ProductName;
+        private String product_name;
         private int count;
     }
 }
