@@ -22,7 +22,7 @@ public class ProductListMapper implements RowMapper<List<Shop.Product>> {
 
         while (rs.next()) {
             Shop.Product product = new Shop.Product();
-            product.setId(rs.getLong("id"));
+            product.setId(rs.getInt("id"));
             product.setProduct_name(rs.getString("product_name"));
             product.setCount(rs.getInt("count"));
             productList.add(product);

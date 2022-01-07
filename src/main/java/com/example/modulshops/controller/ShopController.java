@@ -38,19 +38,18 @@ public class ShopController {
 
     }
 
-
     @GetMapping("/shops/{id}")
     @ApiOperation("get one shop")
-    public Shop getOneShop(@PathVariable("id")long id) {
+    public Shop getOneShop(@PathVariable("id")int id) {
         System.out.println("Get One Shop ... ");
         return shopService.getOneShop(id);
     }
 
-//    @GetMapping("/goods")
-//    public List<Shop.Product> getGoodsListAll() {
-//        return shopService.getProductList();
-//    }
-//
+    @GetMapping("/goods")
+    public List<Shop.Product> getGoodsListAll() {
+        return shopService.getProductList();
+    }
+
 //    @GetMapping("/redirect/{userId}")
 //    public void redirect(@PathVariable("userId") long userId) {
 //    }

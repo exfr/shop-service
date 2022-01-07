@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 @Component
@@ -19,9 +20,19 @@ public class OneShopMapper implements RowMapper<Shop> {
     public Shop mapRow(ResultSet rs, int rowNum) throws SQLException {
 
         Shop oneShop = new Shop();
-        oneShop.setId(rs.getLong("id"));
-        oneShop.setShop_name(rs.getString("shop_name"));
-        
+        oneShop.setId(rs.getInt("id"));
+        oneShop.setShop_name(rs.getString("shopName"));
+        List<Shop.Product> productList1 = new ArrayList<>();
+
+        while(rs.next()) {
+            Shop.Product product = new Shop.Product();
+            product.setProduct_name(rs.getString("productName"));
+            product.setId(rs.getInt("id_of_product"));
+            product.setCount(rs.getInt("count"));
+            productList1.add(product);
+        }
+
+        oneShop.setProductList(productList1);
 
         return oneShop;
     }

@@ -14,7 +14,7 @@ import java.util.List;
 @EqualsAndHashCode
 public class Shop {
 
-    private Long id;
+    private int id;
     private String shop_name;
     private List<Product> productList;
 
@@ -24,7 +24,7 @@ public class Shop {
     @Setter
     @EqualsAndHashCode
     public static class Product {
-        private long id;
+        private int id;
         private String product_name;
         private int count;
     }
