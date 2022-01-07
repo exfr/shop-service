@@ -22,6 +22,8 @@ public class OneShopMapper implements RowMapper<Shop> {
         this.productList = productList;
     }
 
+
+
     @Override
     public Shop mapRow(ResultSet rs, int rowNum) throws SQLException {
 
