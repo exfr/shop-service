@@ -1,10 +1,11 @@
 /**
- * @author Vasilshift
+  @author Vasilshift
  */
 package com.example.modulshops.exception;
 
 import org.springframework.stereotype.Component;
 
+//todo: controller advice - see exception errors
 @Component
 public class BusinessException extends RuntimeException {
 

@@ -19,9 +19,7 @@ public class RandomInserting {
 
         //List<Object> shopList = Collections.singletonList(list.stream().limit(rand));
 
-        List<Object> shopList = IntStream.range(0, rand).mapToObj(list::get).collect(Collectors.toList());
-
-        return shopList;
+        return IntStream.range(0, rand).mapToObj(list::get).collect(Collectors.toList());
 
     }
 }

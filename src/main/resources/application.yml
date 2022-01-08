@@ -1,14 +1,18 @@
-
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/moduleshops
     username: postgres
     password: 123
     driverClassName: org.postgresql.Driver
-
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+#openapi: 3.0.1
+info:
+  title: Swagger Petstore
+
+
+
 
 #    springfox:
 #      documentation:
@@ -21,10 +25,6 @@ springdoc:
 #spring.jpa.show-sql=false
 #spring.jpa.hibernate.ddl-auto=create
 #spring.jpa.properties.hibernate.enable_lazy_load_no_trans=true
-#spring.datasource.driver-class-name=org.postgresql.Driver
-#spring.datasource.url=jdbc:postgresql://localhost:5432/moduleshops
-#spring.datasource.username=postgres
-#spring.datasource.password=123
 
 #spring.flyway.baselineOnMigrate=true
 ##spring.flyway.check-location=true

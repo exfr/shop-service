@@ -4,7 +4,6 @@
 package com.example.modulshops.mapper;
 
 import com.example.modulshops.model.rest.Shop;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
@@ -12,17 +11,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class OneShopProductListMapper implements RowMapper<Shop> {
-
-
-//    private ProductListMapper productListMapper;
-//    @Autowired
-//    public OneShopMapper(ProductListMapper productListMapper) {
-//        this.productListMapper = productListMapper;
-//    }
 
     @Override
     public Shop mapRow(ResultSet rs, int rowNum) throws SQLException {
