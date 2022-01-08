@@ -6,7 +6,9 @@ spring:
     password: 123
     driverClassName: org.postgresql.Driver
 
-
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
 
 #    springfox:
 #      documentation:

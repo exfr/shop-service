@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Map;
 
 @Component
-public class ShopsMapper extends BeanPropertyRowMapper<Shop> {
+public class ShopMapper extends BeanPropertyRowMapper<Shop> {
 
     @Override
     public Shop mapRow(ResultSet rs, int rowNum) throws SQLException {

@@ -21,8 +21,8 @@ public class ProductListMapper implements RowMapper<Shop.Product> {
         //List<Shop.Product> productList = new ArrayList<>();
 
             Shop.Product product = new Shop.Product();
-            product.setId(rs.getInt("id"));
-            product.setProduct_name(rs.getString("product_name"));
+            product.setId(rs.getInt("idProduct"));
+            product.setProduct_name(rs.getString("productName"));
             product.setCount(rs.getInt("count"));
             //productList.add(product);
 
