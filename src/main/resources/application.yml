@@ -4,15 +4,20 @@ spring:
     username: postgres
     password: 123
     driverClassName: org.postgresql.Driver
+
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
+
+
+
+
+
+
+
 #openapi: 3.0.1
-info:
-  title: Swagger Petstore
-
-
-
+#info:
+#  title: Swagger Petstore
 
 #    springfox:
 #      documentation:

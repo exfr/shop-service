@@ -1,6 +1,3 @@
-/**
- * @author Vasilshift
- */
 package com.example.modulshops.controller;
 
 import com.example.modulshops.exception.BusinessException;
@@ -68,10 +65,22 @@ public class MainController {
     }
 
     //todo: exception handler
+    @Operation(summary = "Get shop to id with products",
+            responses = {
+                    @ApiResponse(description = "Successful Operation",
+                            responseCode = "200",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Shop.class))),
+                    @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
+                    @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true)))
+            })
     @GetMapping("/shops/products/{id}")
     public List<Shop.Product> getProductsOneShop(@PathVariable("id")int id) {
-        System.out.println("Get Products FOR ONE SHOP ... ");
+
+
+
+
         return mainService.getProductListOneShop(id);
+
     }
 
     //todo: exception handler
