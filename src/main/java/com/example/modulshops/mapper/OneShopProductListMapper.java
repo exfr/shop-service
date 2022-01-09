@@ -3,7 +3,7 @@
  */
 package com.example.modulshops.mapper;
 
-import com.example.modulshops.model.rest.Shop;
+import com.example.modulshops.model.Shop;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 

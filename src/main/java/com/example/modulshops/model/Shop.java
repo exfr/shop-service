@@ -1,7 +1,7 @@
 /**
  * @author Vasilshift
  */
-package com.example.modulshops.model.rest;
+package com.example.modulshops.model;
 
 import lombok.*;
 

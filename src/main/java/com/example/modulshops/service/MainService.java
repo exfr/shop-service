@@ -1,6 +1,6 @@
 package com.example.modulshops.service;
 
-import com.example.modulshops.model.rest.Shop;
+import com.example.modulshops.model.Shop;
 import com.example.modulshops.repository.MainRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -19,10 +19,6 @@ public class MainService {
 
     public List<Shop> getOneShopListProducts(int id) {
         return mainRepository.getOneShopListProductsRepo(id);
-    }
-
-    public List<Shop.Product> getProductListOneShop(int id) {
-        return mainRepository.getProductListOneShopRepo(id);
     }
 
     public List<Shop.Product> getProductList() {

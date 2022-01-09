@@ -1,7 +1,6 @@
 package com.example.modulshops.controller;
 
-import com.example.modulshops.exception.BusinessException;
-import com.example.modulshops.model.rest.Shop;
+import com.example.modulshops.model.Shop;
 import com.example.modulshops.service.MainService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -12,12 +11,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
 @AllArgsConstructor
+@RequestMapping("/api")
 public class MainController {
 
     private final MainService mainService;
@@ -26,42 +27,17 @@ public class MainController {
             responses = {
                     @ApiResponse(description = "Successful Operation",
                             responseCode = "200",
-                            content = @Content(mediaType = "application/json",
-                                    schema = @Schema(implementation = Shop.class)))
-                    //@ApiResponse(responseCode = "404", description = "Not found", content = @Content),
-                    //@ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = false)))
-            })
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Shop.class))),
+                    @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
+                    @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true))),
+                    @ApiResponse(responseCode = "500", description = "Internal error", content = @Content(schema = @Schema(hidden = true)))})
     @GetMapping("/shops")
     public ResponseEntity<List<Shop>> getShopList() {
-        //todo: exception
         List<Shop> shopList = mainService.getShopListAll();
-
-        //System.out.println(shopList);
-        //List<Shop> shopList = Optional.ofNullable(shopRepository.findAll()).orElse(null);
-
-        if (shopList != null) {
-            return new ResponseEntity<>(shopList, HttpStatus.FOUND);
-        } else {
-            throw new BusinessException("Shops not found");
-            //todo: how exception return
-
+        if (shopList == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-        //return shopList;
-    }
-
-    //todo: exception handler
-    @Operation(summary = "Get shop to id with products",
-            responses = {
-                    @ApiResponse(description = "Successful Operation",
-                            responseCode = "200",
-                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Shop.class)))
-                    //@ApiResponse(responseCode = "404", description = "Not found", content = @Content),
-                    //@ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true)))
-            })
-    @GetMapping("/shops/{id}")
-    public List<Shop> getOneShopWithProduct(@PathVariable("id")int id) {
-        System.out.println("Get One Shop ... ");
-        return mainService.getOneShopListProducts(id);
+        return new ResponseEntity<>(shopList, HttpStatus.OK);
     }
 
     //todo: exception handler
@@ -71,22 +47,34 @@ public class MainController {
                             responseCode = "200",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Shop.class))),
                     @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
-                    @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true)))
-            })
-    @GetMapping("/shops/products/{id}")
-    public List<Shop.Product> getProductsOneShop(@PathVariable("id")int id) {
-
-
-
-
-        return mainService.getProductListOneShop(id);
-
+                    @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true))),
+                    @ApiResponse(responseCode = "500", description = "Internal error", content = @Content(schema = @Schema(hidden = true)))})
+    @GetMapping("/shops/{id}")
+    public ResponseEntity<List<Shop>> getOneShopWithProduct(@PathVariable("id")int id) {
+        List<Shop> shopList = mainService.getOneShopListProducts(id);
+        if (shopList == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(shopList, HttpStatus.OK);
     }
 
+
     //todo: exception handler
+    @Operation(summary = "Get all products",
+            responses = {
+                    @ApiResponse(description = "Successful Operation",
+                            responseCode = "200",
+                            content = @Content(mediaType = "application/json", schema = @Schema(implementation = Shop.class))),
+                    @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
+                    @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true))),
+                    @ApiResponse(responseCode = "500", description = "Internal error", content = @Content(schema = @Schema(hidden = true)))})
     @GetMapping("/allproducts")
-    public List<Shop.Product> getGoodsListAll() {
-        return mainService.getProductList();
+    public ResponseEntity<List<Shop.Product>> getGoodsListAll() {
+        List<Shop.Product> productList = mainService.getProductList();
+        if (productList == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(productList, HttpStatus.OK);
     }
 //todo: Do it
 //    @GetMapping("/redirect/{userId}")
