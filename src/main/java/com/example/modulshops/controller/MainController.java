@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @AllArgsConstructor
@@ -48,8 +49,8 @@ public class MainController {
                     @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
                     @ApiResponse(responseCode = "401", description = "Authentication Failure")})
     @GetMapping("/shops/{id}")
-    public ResponseEntity<List<Shop>> getOneShopWithProduct(@PathVariable("id")int id) {
-        List<Shop> shopList = mainService.getOneShopListProducts(id);
+    public ResponseEntity<Optional<Shop>> getOneShopWithProduct(@PathVariable("id")int id) {
+        Optional<Shop> shopList = mainService.getOneShopListProducts(id);
         if (shopList == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }

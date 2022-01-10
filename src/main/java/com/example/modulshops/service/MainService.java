@@ -7,6 +7,7 @@ import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -14,12 +15,12 @@ public class MainService {
 
     private final MainRepository mainRepository;
 
-    @SneakyThrows
+    //@SneakyThrows
     public List<Shop> getShopListAll() {
         return mainRepository.getShopListAll();
     }
 
-    public List<Shop> getOneShopListProducts(int id) {
+    public Optional<Shop> getOneShopListProducts(int id) {
         return mainRepository.getOneShopListProducts(id);
     }
 
