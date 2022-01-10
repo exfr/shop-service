@@ -29,8 +29,7 @@ public class MainController {
                             responseCode = "200",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Shop.class))),
                     @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
-                    @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true))),
-                    @ApiResponse(responseCode = "500", description = "Internal error", content = @Content(schema = @Schema(hidden = true)))})
+                    @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true)))})
     @GetMapping("/shops")
     public ResponseEntity<List<Shop>> getShopList() {
         List<Shop> shopList = mainService.getShopListAll();
@@ -47,8 +46,7 @@ public class MainController {
                             responseCode = "200",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Shop.class))),
                     @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
-                    @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true))),
-                    @ApiResponse(responseCode = "500", description = "Internal error", content = @Content(schema = @Schema(hidden = true)))})
+                    @ApiResponse(responseCode = "401", description = "Authentication Failure")})
     @GetMapping("/shops/{id}")
     public ResponseEntity<List<Shop>> getOneShopWithProduct(@PathVariable("id")int id) {
         List<Shop> shopList = mainService.getOneShopListProducts(id);
@@ -66,8 +64,7 @@ public class MainController {
                             responseCode = "200",
                             content = @Content(mediaType = "application/json", schema = @Schema(implementation = Shop.class))),
                     @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
-                    @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true))),
-                    @ApiResponse(responseCode = "500", description = "Internal error", content = @Content(schema = @Schema(hidden = true)))})
+                    @ApiResponse(responseCode = "401", description = "Authentication Failure", content = @Content(schema = @Schema(hidden = true)))})
     @GetMapping("/allproducts")
     public ResponseEntity<List<Shop.Product>> getGoodsListAll() {
         List<Shop.Product> productList = mainService.getProductList();
@@ -76,6 +73,7 @@ public class MainController {
         }
         return new ResponseEntity<>(productList, HttpStatus.OK);
     }
+
 //todo: Do it
 //    @GetMapping("/redirect/{userId}")
 //    public void redirect(@PathVariable("userId") long userId) {
