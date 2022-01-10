@@ -20,7 +20,6 @@ import java.util.Optional;
 public class MainRepository {
 
     private final JdbcTemplate jdbcTemplate;
-    //private final MySQLException mySQLException;
 
     public List<Shop> getShopListAll() {
         String query = "SELECT shop.id AS idShop, shop.shop_name AS shopName FROM shop";
