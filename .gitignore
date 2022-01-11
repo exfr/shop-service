@@ -3,7 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-/.mvn/
+.mvn/wrapper
 /.idea/
 /ZZZ_DELETE/
 
@@ -15,6 +15,13 @@ target/
 .settings
 .springBeans
 .sts4-cache
+
+/mvnw/
+mvnw.cmd
+.gitignore
+/.mvn
+
+
 
 ### IntelliJ IDEA ###
 .idea
