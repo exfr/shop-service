@@ -30,12 +30,8 @@ public class OneShopProductListMapper implements RowMapper<Shop> {
             product.setCount(rs.getInt("count"));
             productList.add(product);
         }
-        
-        System.out.println("productList: " + productList);
 
         oneShop.setProductList(productList);
-
-        System.out.println("oneShop: " + oneShop);
         
         return oneShop;
     }

@@ -40,8 +40,6 @@ public class MainRepository {
         Optional<Shop> shop = Optional.of(jdbcTemplate.query(query, new OneShopProductListMapper(), id))
                 .get().stream().findAny();
 
-
-
         return shop;
     }
 

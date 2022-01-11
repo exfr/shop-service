@@ -16,18 +16,12 @@ public class MainService {
 
     private final MainRepository mainRepository;
 
-    private static Logger logger = LoggerFactory.getLogger(MainService.class.getName());
-
-
     //@SneakyThrows
     public List<Shop> getShopListAll() {
         return mainRepository.getShopListAll();
     }
 
     public Optional<Shop> getOneShopListProducts(int id) throws Exception {
-        logger.info("logger method getOneShopListProducts");
-        //Handler fileHandler = new FileHandler("ExceptionsLog", true);
-
         return mainRepository.getOneShopListProducts(id);
     }
 
