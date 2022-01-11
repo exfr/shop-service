@@ -22,22 +22,4 @@ class ModulshopsApplicationTests {
 	void contextLoads() {
 	}
 
-//	@Test
-//	public List<Shop> getShopListAll() {
-//
-//		String query = "SELECT shop.id AS idShop, shop.shop_name AS shopName FROM shop";
-//
-//		//Optional<Shop> shopList = Optional.of(jdbcTemplate.query(query, new ShopMapper()));
-//		List<Shop> shoplist = null;
-//		shoplist = Optional.of(jdbcTemplate.query(query, new ShopMapper())).orElseThrow();
-//		List<Shop> shopListAssertion = jdbcTemplate.query(query, new ShopMapper());
-//		Assert.assertEquals("ghvj", shoplist, shopListAssertion);
-//
-//
-//		return shoplist;
-//	}
-
-
-
-
 }

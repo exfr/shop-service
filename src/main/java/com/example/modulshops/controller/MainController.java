@@ -49,7 +49,7 @@ public class MainController {
                     @ApiResponse(responseCode = "404", description = "Not found", content = @Content),
                     @ApiResponse(responseCode = "401", description = "Authentication Failure")})
     @GetMapping("/shops/{id}")
-    public ResponseEntity<Optional<Shop>> getOneShopWithProduct(@PathVariable("id")int id) {
+    public ResponseEntity<Optional<Shop>> getOneShopWithProduct(@PathVariable("id")int id) throws Exception {
         Optional<Shop> shopList = mainService.getOneShopListProducts(id);
         if (shopList == null) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
