@@ -9,13 +9,11 @@ import com.example.modulshops.mapper.ProductListMapper;
 import com.example.modulshops.mapper.ShopMapper;
 import com.example.modulshops.model.Shop;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Repository
 @AllArgsConstructor
@@ -35,15 +33,9 @@ public class MainRepository {
     }
 
     public Optional<Shop> getOneShopListProducts(int id) throws MySQLException {
-        String query = null;
-        //Optional<Shop> shop = null;
 
-        query = "SELECT shop.id AS idShop, shop.shop_name AS shopName, product.id AS idProduct, product.product_name AS productName, " +
+        String query = "SELECT shop.id AS idShop, shop.shop_name AS shopName, product.id AS idProduct, product.product_name AS productName, " +
                 "product.count AS count FROM shop inner join product ON shop.id = product.id_shop WHERE shop.id = ?";
-
-//        Optional<Shop> shop = Optional.of(jdbcTemplate.query(query, new OneShopProductListMapper(), id))
-//                .get().stream().findAny()
-//                .orElseThrow(() -> new MySQLException("file not found"));
 
         Optional<Shop> shop = Optional.of(jdbcTemplate.query(query, new OneShopProductListMapper(), id))
                 .get().stream().findAny();
